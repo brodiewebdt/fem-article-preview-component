@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+:root {
+  /* Primary Colors */
+  --color-primary-dark: hsl(228, 100%, 66%);
+  --color-primary-light: hsl(228, 100%, 75%);
+  --color-secondary-light: hsl(227, 100%, 95%);
+
+  /* Font Family */
+  --ff-primary: 'Manrope', sans-serif;
+
+  /* Font Size */
+  --fs-48: 3rem;
+  --fs-32: 2rem;
+  --fs-24: 1.5rem;
+  --fs-16: 1rem;
+  --fs-14: 0.875rem;
+  --fs-12: 0.75rem;
+  /* Font Weights */
+  --fw-900: 900;
+  --fw-800: 800;
+  --fw-700: 700;
+  --fw-600: 600;
+  --fw-500: 500;
+  --fw-400: 400;
+  --fw-300: 300;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+}
+
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
