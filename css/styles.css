@@ -7,9 +7,10 @@
 
 :root {
   /* Primary Colors */
-  --color-primary-dark: hsl(228, 100%, 66%);
-  --color-primary-light: hsl(228, 100%, 75%);
-  --color-secondary-light: hsl(227, 100%, 95%);
+  --color-primary-100: hsl(210, 46%, 95%);
+  --color-primary-200: hsl(212, 23%, 69%);
+  --color-primary-400: hsl(214, 17%, 51%);
+  --color-secondary-900: hsl(217, 19%, 35%);
 
   /* Font Family */
   --ff-primary: 'Manrope', sans-serif;
@@ -18,8 +19,10 @@
   --fs-48: 3rem;
   --fs-32: 2rem;
   --fs-24: 1.5rem;
+  --fs-20: 1.25rem;
   --fs-16: 1rem;
   --fs-14: 0.875rem;
+  --fs-13: 0.8125rem;
   --fs-12: 0.75rem;
   /* Font Weights */
   --fw-900: 900;
@@ -38,7 +41,10 @@
 }
 
 body {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-400);
   font-family: var(--ff-primary);
+  font-size: var(--fs-13);
 }
 
 .visually-hidden {
