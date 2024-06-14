@@ -7,10 +7,12 @@
 
 :root {
   /* Primary Colors */
-  --color-primary-100: hsl(210, 46%, 95%);
-  --color-primary-200: hsl(212, 23%, 69%);
+  --color-primary-100: hsl(0, 0%, 98%);
+  --color-primary-200: hsl(210, 46%, 95%);
+  --color-primary-300: hsl(212, 23%, 69%);
   --color-primary-400: hsl(214, 17%, 51%);
-  --color-secondary-900: hsl(217, 19%, 35%);
+  --color-primary-900: hsl(217, 19%, 35%);
+  --color-link-hover: hsl(160, 43%, 63%);
 
   /* Font Family */
   --ff-primary: 'Manrope', sans-serif;
@@ -34,17 +36,87 @@
   --fw-300: 300;
 }
 
+/********* Josh Comeau Reset Styles *********/
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
 
 body {
-  background-color: var(--color-primary-100);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: var(--color-primary-200);
   color: var(--color-primary-400);
   font-family: var(--ff-primary);
   font-size: var(--fs-13);
+  line-height: 1.54;
+  padding-block: 5rem;
 }
 
 .visually-hidden {
@@ -59,4 +131,188 @@ body {
   position: absolute !important;
   width: 1px !important;
   white-space: nowrap !important;
+}
+
+/********* Typography *********/
+h1,
+h2 {
+  color: var(--color-primary-900);
+  font-weight: var(--fw-700);
+}
+h1 {
+  font-size: var(--fs-16);
+
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: var(--fs-13);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 700px) {
+  h1 {
+    font-size: var(--fs-20);
+    line-height: 1.4;
+  }
+}
+
+/********* Product Post Styles *********/
+article {
+  display: grid;
+  background-color: var(--color-primary-100);
+  border-radius: 10px;
+  box-shadow: 0px 40px 40px -10px hsla(210, 29%, 84%, 0.5);
+  max-width: 28.125rem;
+
+  /* overflow: hidden; */
+
+  margin-inline: 1.5rem;
+}
+
+.post-content {
+  /* padding-block-start: 2rem; */
+}
+
+.post-text {
+  padding-inline: clamp(1.688rem, 1.053rem + 3.171vi, 2.5rem);
+  padding-block: 2.25rem 1.25rem;
+}
+
+.post-subhead {
+  letter-spacing: 0.12px;
+  padding-block-start: 1.5rem;
+}
+
+.post-image img {
+  aspect-ratio: 3.2 / 2;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.author {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  padding-inline: clamp(1.688rem, 1.053rem + 3.171vi, 2.5rem);
+
+  /* background-color: bisque; */
+}
+
+.author-image {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-200);
+  cursor: pointer;
+  width: 2rem;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  line-height: 2rem;
+  margin-inline-start: auto;
+  z-index: 2;
+}
+
+.share-bar {
+  /* display: flex; */
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary-900);
+  color: var(--color-primary-300);
+  letter-spacing: 5px;
+  padding-inline: clamp(1.688rem, 1.053rem + 3.171vi, 2.5rem);
+  text-transform: uppercase;
+  display: none;
+}
+
+.share-bar.active {
+  display: flex;
+}
+
+.share-btn.active {
+  background-color: var(--color-primary-400);
+}
+
+.share-btn.active svg path {
+  fill: var(--color-primary-100);
+}
+
+.share-bar ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-inline-start: 1rem;
+}
+
+.social-link svg path:hover,
+.social-link svg path:focus {
+  fill: var(--color-link-hover);
+}
+
+@media (min-width: 900px) {
+  article {
+    grid-template-columns: 17.8125rem 1fr;
+    margin-inline: auto;
+    max-width: 45.625rem;
+  }
+
+  .post-image img {
+    object-fit: cover;
+    /* max-width: 100%; */
+    height: 100%;
+    border-radius: 10px 0px 0px 10px;
+  }
+
+  .post-text {
+    padding-block: 2rem 0.5rem;
+  }
+
+  .author {
+    padding-block-end: 2rem;
+  }
+
+  .share-bar {
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    position: absolute;
+    top: -68px;
+    left: 263px;
+    width: 250px;
+    height: 3.5rem;
+    border-radius: 10px;
+    padding-inline: 2rem;
+  }
+
+  .share-bar ul {
+    margin-inline-start: 0;
+  }
+
+  .pointer {
+    position: absolute;
+    top: -14px;
+    left: 56px;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    background-color: var(--color-primary-900);
+    rotate: 45deg;
+    transform: translateX(5rem);
+  }
 }
