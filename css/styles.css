@@ -218,6 +218,7 @@ article {
   background-color: var(--color-primary-200);
   cursor: pointer;
   width: 2rem;
+  border: none;
   border-radius: 50%;
   aspect-ratio: 1;
   line-height: 2rem;
